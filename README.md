@@ -1,15 +1,22 @@
 # theos on Ubuntu
 
-## [Docker] compose & run
+## [Docker] compose & exec
 ```bash
 $ docker-compose up -d
 $ docker exec -it theos /bin/bash
 ```
 
-## Develop tweaks
-```bash
-$ $THEOS/bin/nic.pl
+## Initialize
+sdks and toolchains are stored under `./tmp`.  
+Only run for the first time because `./tmp` is mounted.
 
+```
+root@theos:/tweaks# ./init.sh
+```
+
+## Start to develop
+```
+root@theos:/tweaks# $THEOS/bin/nic.pl
 NIC 2.0 - New Instance Creator
 ------------------------------
   [1.] iphone/activator_event

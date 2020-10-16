@@ -8,8 +8,10 @@ ENV DEBCONF_NOWARNINGS yes
 
 RUN apt-get update
 RUN apt-get -y install git && \
-    apt-get -y install locales && \
+    apt-get -y install vim && \
     apt-get -y install curl && \
+    apt-get -y install tree && \
+    apt-get -y install locales && \
     localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
 
 ENV LANG ja_JP.UTF-8
@@ -33,16 +35,4 @@ ENV THEOS /theos
 # Clone Theos to your device
 RUN git clone --recursive https://github.com/theos/theos.git ${THEOS}
 
-# Get the toolchain
-RUN curl https://kabiroberai.com/toolchain/download.php?toolchain=ios-linux -Lo toolchain.tar.gz && \
-    tar xzf toolchain.tar.gz -C ${THEOS}/toolchain && \
-    rm toolchain.tar.gz
-
-# Get an iOS SDK
-RUN rm -r ${THEOS}/sdks && \
-    git clone --recursive https://github.com/theos/sdks.git ${THEOS}/sdks
-
-# Install the Swift toolchain
-RUN curl https://kabiroberai.com/toolchain/download.php?toolchain=swift-ubuntu-latest -Lo swift-toolchain.tar.gz && \
-    tar xzf swift-toolchain.tar.gz -C ${THEOS}/toolchain && \
-    rm swift-toolchain.tar.gz
+COPY ./theos/CydiaSubstrate.tbd ${THEOS}/vendor/lib/CydiaSubstrate.framework/

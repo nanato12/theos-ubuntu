@@ -1,6 +1,7 @@
 version: '3'
 services:
   theos:
+    hostname: 'theos'
     restart: always
     build: .
     container_name: 'theos'
@@ -8,3 +9,5 @@ services:
     tty: true
     volumes:
       - ./tweaks:/tweaks
+      - ./tmp/toolchain:/theos/toolchain
+      - ./tmp/sdks:/theos/sdks

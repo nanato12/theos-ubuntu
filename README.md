@@ -1,5 +1,14 @@
 # theos on Ubuntu
 
+Currently, theos on Linux does not support **arm64e**.
+
+## Theos settings
+You can write theos settings to `./theos/.nicrc`.
+```
+username="nanato12"
+package_prefix="jp.nanato12"
+```
+
 ## [Docker] compose & exec
 ```bash
 $ docker-compose up -d
@@ -36,5 +45,11 @@ NIC 2.0 - New Instance Creator
   [15.] iphone/tweak
   [16.] iphone/tweak_with_simple_preferences
   [17.] iphone/xpc_service
-Choose a Template (required):
+Choose a Template (required): 15
+Project Name (required): Test Package
+Package Name [jp.nanato12.testpackage]:
+[iphone/tweak] MobileSubstrate Bundle filter [com.apple.springboard]:
+[iphone/tweak] List of applications to terminate upon installation (space-separated, '-' for none) [SpringBoard]:
+Instantiating iphone/tweak in testpackage/...
+Done.
 ```

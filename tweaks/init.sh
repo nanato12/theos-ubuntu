@@ -9,7 +9,7 @@ curl https://kabiroberai.com/toolchain/download.php?toolchain=ios-linux -Lo tool
 # Get an iOS SDK
 cd ${THEOS}/sdks/ && \
     git init && \
-    git remote add origin https://github.com/theos/sdks.git && \
+    git remote add origin https://github.com/xybp888/iOS-SDKs.git && \
     git pull origin master
 
 cd

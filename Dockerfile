@@ -35,4 +35,6 @@ ENV THEOS /theos
 # Clone Theos to your device
 RUN git clone --recursive https://github.com/theos/theos.git ${THEOS}
 
+# Copy THEOS config files
 COPY ./theos/CydiaSubstrate.tbd ${THEOS}/vendor/lib/CydiaSubstrate.framework/
+COPY ./theos/.nicrc /root/
